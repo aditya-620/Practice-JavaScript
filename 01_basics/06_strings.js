@@ -43,6 +43,13 @@ console.log("checking is 'sunder' is in string:", url.includes('sundar'))
 console.log("split the string when '-' appears:", gameName.split('-'));
 console.log("---------------------");
 
+const s1 = "2 + 2"; // creates a string primitive
+const s2 = new String("2 + 2"); // creates a String object
+console.log(eval(s1)); // returns the number 4
+console.log(eval(s2)); // returns the string "2 + 2"
+console.log(eval(s2.valueOf())); // returns the number 4
+console.log("---------------------");
+
 //LINK: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 
 //If you like my code do give stars:-)
