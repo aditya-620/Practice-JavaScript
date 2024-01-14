@@ -15,6 +15,7 @@ const JsUser = {
     isLoggedIn: false,
     lastLoginDays: ["Monday", "Saturday"]
 }
+
 //some access methods
 console.log(JsUser.email)  //using '.' operator
 console.log(JsUser["email"])
