@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent)  //returns every thing which is present in the first parent class
+    console.log(parent.children);  //returns HTMLCollections
+    console.log(parent.children[1]);  //<div class="day">Tuesday</div>
+    console.log(parent.children[1].innerHTML);  //Tuesday
+
+    //we cann't we array properties as HTMLCollection is not a pure array
+    //but we can use our classical for loop on any array like stuff
+    for (let i = 0; i < parent.children.length; i++) {
+         console.log(parent.children[i].innerHTML);
+    }
+    
+    parent.children[1].style.color = "orange"  //make 'Tuesday' color orange
+    console.log(parent.firstElementChild);  //<div class="day">Monday</div>
+    console.log(parent.lastElementChild);  //<div class="day">Thursday</div>
+
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne);  //first .day class properties
+    console.log(dayOne.parentElement);  //gives the parent of .day class
+    console.log(dayOne.nextElementSibling);  //gives the next sibling of the first .class (<div class="day">Tuesday</div>) 
+
+
+    //child nodes
+    console.log("NODES: ", parent.childNodes);
+    //note: every element in the html creates a node and each node have all the properties
+    //even the nextline(enter) is consider as a node, but only once after each node
+
+</script>
+</html>
