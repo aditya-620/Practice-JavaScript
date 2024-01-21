@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+    <p>
+        XMLHttpRequest: readyState property
+
+        Value	State	         Description
+        0	   UNSENT	         Client has been created. open() not called yet.
+        1	   OPENED	         open() has been called.
+        2	   HEADERS_RECEIVED	 send() has been called, and headers and status are available.
+        3	   LOADING	         Downloading; responseText holds partial data.
+        4	   DONE	             The operation is complete.
+    </p>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/aditya-620'   //this is api request url
+    const xhr = new XMLHttpRequest();   //creating an object 'xhr' of class XMLHttpRequest()
+    xhr.open('GET', requestUrl)   //use to send the request, requires 2 parameter - method and string
+
+    xhr.onreadystatechange = function(){   //whenever the state eill change the function will execute
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            // console.log(this.responseText); 
+            //the return we get here is a response.so, 'this.responseText',& responseText is just a user defined name
+            //and the return's type is string
+            const data = JSON.parse(this.responseText)   //parse method convert string to JSON(Object)
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    xhr.send();
+</script>
+</html>
