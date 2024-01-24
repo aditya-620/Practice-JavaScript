@@ -1,12 +1,12 @@
 const promiseOne = new Promise(function(resolve, reject){
-    //Do an async task
-    // DB calls, cryptography, network
+    //Do an async task, like - DB calls, cryptography, network
     setTimeout(function(){
         console.log('Async task is compelete');
-        resolve()
+        resolve()  //connects with then() method
     }, 1000)
 })
-
+//.then() has direct relation with resolve,
+//the below function automatically get the return value as its parameter from above function
 promiseOne.then(function(){
     console.log("Promise consumed");
 })
@@ -42,17 +42,16 @@ const promiseFour = new Promise(function(resolve, reject){
     }, 1000)
 })
 
- promiseFour
- .then((user) => {
+ promiseFour.then((user) => {
     console.log(user);
     return user.username
-}).then((username) => {
+}).then((username) => { //here we doing chaining(thenable), get returned value of previous then() as parameter
     console.log(username);
 }).catch(function(error){
     console.log(error);
-}).finally(() => console.log("The promise is either resolved or rejected"))
+}).finally(() => console.log("The promise is either resolved or rejected"))    //this always works
 
-
+//---------------------------------------------------------------------------------
 
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(function(){
@@ -65,6 +64,7 @@ const promiseFive = new Promise(function(resolve, reject){
     }, 1000)
 });
 
+//async await
 async function consumePromiseFive(){
     try {
         const response = await promiseFive
@@ -75,12 +75,14 @@ async function consumePromiseFive(){
 }
 
 consumePromiseFive()
+//---------------------------------------------------------------------------------
+
 
 // async function getAllUsers(){
 //     try {
 //         const response = await fetch('https://jsonplaceholder.typicode.com/users')
 
-//         const data = await response.json()
+//         const data = await response.json()   //for converting string to json, it takes some time, so await
 //         console.log(data);
 //     } catch (error) {
 //         console.log("E: ", error);
