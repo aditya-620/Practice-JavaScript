@@ -25,3 +25,6 @@
 ( (name) => {
     console.log(`DB CONNECTED THREE ${name}`);
 } )('ADITA');
+
+// () First parenthesis is used for function definition
+// () second parenthesis is used for function execution
