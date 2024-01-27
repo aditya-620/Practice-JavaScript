@@ -23,7 +23,7 @@ console.log(myArr.indexOf(3));  //3 (returns index)
 console.log("---------------------");
 
 
-const newArr = myArr.join()
+const newArr = myArr.join()  // bind the array and converts it into a string
 
 console.log(myArr);
 console.log(newArr);  //add all the element to string - typeof => string
@@ -41,7 +41,8 @@ console.log("---------------------");
 console.log("original array before splice:", myArr); //[ 0, 1, 2, 3, 4, 5 ]
 const myn2 = myArr.splice(1, 3)
 console.log("splice (1,3):",myn2);
-console.log("original array after slice:", myArr);  //[ 0, 4, 5 ]
+console.log("original array after splice:", myArr);  //[ 0, 4, 5 ]
+// splice removes the given portion in an original array, and also change in the original array
 
 //If you like my code do give stars:-)
 //Keep coding!!
